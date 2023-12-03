@@ -66,6 +66,8 @@ private:
     int32_t   _xAxisRotation;
     int32_t   _yAxisRotation;
     int32_t   _zAxisRotation;
+    int32_t	  _sliderAxis;
+	int32_t	  _dialAxis;
     int32_t   _throttle;
     int32_t   _rudder;
     int32_t   _accelerator;
@@ -93,6 +95,10 @@ private:
     int32_t  _ryAxisMaximum = JOYSTICK_DEFAULT_AXIS_MAXIMUM;
     int32_t  _rzAxisMinimum = JOYSTICK_DEFAULT_AXIS_MINIMUM;
     int32_t  _rzAxisMaximum = JOYSTICK_DEFAULT_AXIS_MAXIMUM;
+    int32_t  _sliderAxisMinimum = JOYSTICK_DEFAULT_AXIS_MINIMUM;
+	int32_t  _sliderAxisMaximum = JOYSTICK_DEFAULT_AXIS_MAXIMUM;
+	int32_t  _dialAxisMinimum = JOYSTICK_DEFAULT_AXIS_MINIMUM;
+	int32_t  _dialAxisMaximum = JOYSTICK_DEFAULT_AXIS_MAXIMUM;
     int32_t  _rudderMinimum = JOYSTICK_DEFAULT_SIMULATOR_MINIMUM;
     int32_t  _rudderMaximum = JOYSTICK_DEFAULT_SIMULATOR_MAXIMUM;
     int32_t  _throttleMinimum = JOYSTICK_DEFAULT_SIMULATOR_MINIMUM;
@@ -124,6 +130,8 @@ public:
         bool includeRxAxis = true,
         bool includeRyAxis = true,
         bool includeRzAxis = true,
+        bool includeSliderAxis = true,
+		bool includeDialAxis = true,
         bool includeRudder = true,
         bool includeThrottle = true,
         bool includeAccelerator = true,
@@ -164,6 +172,16 @@ public:
         _rzAxisMinimum = minimum;
         _rzAxisMaximum = maximum;
     }
+    inline void setSliderAxisRange(int32_t minimum, int32_t maximum)
+	{
+		_sliderAxisMinimum = minimum;
+		_sliderAxisMaximum = maximum;
+	}
+	inline void setDialAxisRange(int32_t minimum, int32_t maximum)
+	{
+		_dialAxisMinimum = minimum;
+		_dialAxisMaximum = maximum;
+	}
     inline void setRudderRange(int32_t minimum, int32_t maximum)
     {
         _rudderMinimum = minimum;
@@ -197,6 +215,10 @@ public:
     void setRxAxis(int32_t value);
     void setRyAxis(int32_t value);
     void setRzAxis(int32_t value);
+
+    // Set Slider Values
+	void setSliderAxis(int32_t value);
+	void setDialAxis(int32_t value);
 
     // Set Simulation Values
     void setRudder(int32_t value);
